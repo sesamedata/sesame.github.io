@@ -1,0 +1,360 @@
+/* Backscreen */
+.backscreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 70;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* pannel */
+.backscreen .pannel {
+    border-radius: 20px;
+    padding: 80px 40px 40px 40px;
+    width: 93%;
+    height: calc(93% - 80px - 40px);
+    background-color: var(--background);
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Close pannel */
+.backscreen .pannel .closePannel {
+    position: absolute;
+    padding: 10px;
+    fill: var(--text-color);
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.backscreen .pannel .closePannel svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Actions Alert */
+.backscreen .pannel .actions-alert {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Button Hover */
+.button:hover {
+    background-color: var(--outline);
+}
+
+/* Button */
+.button .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #ffdad8;
+}
+.button .icon svg {
+    width: 30px;
+    height: 30px;
+}
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 20px 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--second-background);
+    transition: 0.3s;
+}
+.button .message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+.button .message .info {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--outline);
+    fill: #ffdad8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* Top Back */
+.topBack {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 5px 15px 5px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    fill: var(--text-color);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50px;
+}
+.topBack:hover {
+    background-color: var(--outline-hover);
+}
+
+/* Actions Container */
+.actions-container {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Action */
+.actions-container .action:hover {
+    background-color: var(--outline);
+}
+
+.actions-container .action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    width: fit-content;
+    gap: 20px;
+    background-color: var(--outline-hover);
+}
+
+/* Icon */
+.actions-container .action .icon {
+    padding: 10px;
+    background-color: var(--outline);
+    fill: #ffdad8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.actions-container .action .icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Name */
+.actions-container .action .name {
+    font-size: 15px;
+}
+ 
+/* Add Items Container */
+.addItemsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-color) !important;
+    margin-top: -20px;
+}
+
+/* Content Form */
+.addItemsContainer .contentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100% - 85px - 60px);
+    padding-right: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Content Input */
+.addItemsContainer .contentForm .contentInput {
+    padding-top: 20px;
+    position: relative;
+    width: 100%;
+}
+
+/* Title */
+.addItemsContainer .contentForm .contentInput .title {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    fill: #ffdad8;
+    color: #ffdad8;
+    position: absolute;
+    height: fit-content;
+    top: 33px;
+    left: 10px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    background-color: var(--outline);
+    padding: 0px 10px 2px 10px;
+    border-radius: 5px;
+}
+
+/* Input Effects */
+.addItemsContainer .contentForm .contentInput .InputEnter:focus ~ .title,
+.addItemsContainer .contentForm .contentInput .InputEnter:valid ~ .title,
+.addItemsContainer .contentForm .contentInput:hover .title {
+    top: 10px;
+    left: 5px;
+    font-size: 13px;
+    color: var(--low-color);
+    fill: var(--low-color);
+}
+
+/* Input Field */
+.addItemsContainer .contentForm .contentInput input {
+    width: calc(100% - 30px);
+    border: none;
+    outline: none;
+    background-color: var(--outline);
+    border-radius: 5px;
+    height: 50px;
+    padding: 0px 15px;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+/* Content Links and Content About */
+.addItemsContainer .contentForm .contentLinks,
+.addItemsContainer .contentForm .contentAbout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    .contentInput {
+        width: 30%;
+    }
+}
+
+/* Header */
+.addItemsContainer .header {
+    width: 100%;
+    height: 85px;
+}
+
+/* Classes */
+.addItemsContainer .header .classes {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Item */
+.addItemsContainer .header .classes .item {
+    color: var(--text-color) !important;
+    font-size: 15px !important;
+    border: 2px solid transparent;
+    border-style: none none solid none;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 110px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Icon */
+.addItemsContainer .header .classes .item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--outline);
+    fill: #ffdad8;
+    width: fit-content;
+}
+
+/* Item Hover Effect */
+.addItemsContainer .header .classes .item:hover {
+    background-color: var(--outline);
+}
+
+.itemSelected {
+    background-color: var(--outline-hover) !important;
+
+}
+
+
+/* Job Done Container */
+.job-done {
+    padding: 40px;
+    background-color: var(--outline-hover);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon */
+.job-done .icon svg {
+    width: 50px;
+    height: 50px;
+    fill: #ffdad8;
+}
+
+/* Title */
+.job-done .title {
+    font-size: 25px;
+}
+
+/* Subtitle */
+.job-done .subtitle {
+    color: var(--low-color);
+}
+
+
+.publish-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.publish-container .jumpToContent {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.jumpToContent .jumpTo {
+    padding: 10px;
+    fill:#ffdad8;
+    background-color: var(--outline-hover);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.jumpToContent .jumpTo:hover {
+    background-color: var(--outline);
+}

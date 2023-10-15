@@ -1,0 +1,56 @@
+<div class="backscreen"></div>
+<div class="adminPage">
+    <div class="act-bar">
+        <div class="search-input">
+            <input type="text" placeholder="Search datas" name="Search datas" autocomplete="off">
+        </div>
+        <div class="item" id="AddDatas" onclick="DatasPannel()">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M280-280h80v-200h-80v200Zm320 0h80v-400h-80v400Zm-160 0h80v-120h-80v120Zm0-200h80v-80h-80v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Z"/></svg>
+            </div>
+            <div class="text">
+                Admin pannel
+            </div>
+        </div>
+        <div class="item" id="LeaveSession">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h560v-560H200v160h-80v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm220-160-56-58 102-102H120v-80h346L364-622l56-58 200 200-200 200Z"/></svg>
+            </div>
+            <div class="text">
+                Delete Session
+            </div>
+        </div>
+    </div>
+    <div class="queryResults">
+        <div class="loader">
+            <div class="text">
+                Loading datas
+            </div>
+            <div class="load">
+                <div class="load-bar">
+
+                </div>
+            </div>
+        </div>
+        <div class="queryWhole">
+            
+        </div>
+    </div>
+</div>
+    <div class="credits">
+        <div class="images">
+            <img src="styles/webutils/sesamod.png" id="logo">
+            <img src="styles/webutils/nafcreations.png" id="logo">
+
+        </div>
+        <div class="content">
+            <div class="title">
+                Sesame by Naflouille Creations.
+            </div>
+            <div class="description">
+                Sesame by Naflouille Creations is a protected projet. This project is leaded by Naflouille.<br>
+                No datas is readen by our website, everything is managed by Github and our database.<br>
+                For more informations, join the <a href="https://discord.gg/wtvGdj43F7">Discord server</a>.
+            </div>
+        </div>
+    </div>

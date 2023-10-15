@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <title>Sesadmin</title>
+    <link rel="stylesheet" type="text/css" href="styles/root/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/root/pannel.css">
+    <link rel="stylesheet" type="text/css" href="styles/root/phone.css">
+    <link rel="stylesheet" type="text/css" href="styles/root/root.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/fetchDatas.js"></script>
+    <script src="scripts/pannel.js"></script>
+    <script src="scripts/getDataFromDatabase.js"></script>
+    <script src="scripts/push.js"></script>
+
+    <script src="scripts/var/code_pattern.js"></script>
+    <script src="scripts/var/directory.js"></script>
+    <script src="scripts/var/placeholders.js"></script>
+    <link rel="icon" href='styles/webutils/logo.ico' type="image/x-icon"/>
+
+    <link rel="import" href="main.html">
+    <link rel="import" href="pannel.html">
+
+    <title>Sesame</title>
+    <meta content="SesAdmin" property="og:title">
+    <meta content="Datas management for the online tool Sesame." property="og:description">
+    <meta content="https://w0lfan.github.io/sesame/" property="og:url">
+    <meta content="https://media.discordapp.net/attachments/1137720124137291876/1137786285294112869/Starblast_Modding_Search_Engine.png?width=2410&height=1355" property="og:image">
+    <meta content="#E91E63" data-react-helmet="true" name="theme-color">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</html>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <div class="sesame-logo">
+                <img src="styles/webutils/sesamod.png">
+            </div>
+            <div class="informations">
+                Sesame Data Management and Admin Pannel
+            </div>
+        </div>
+        <div class="connect" >
+            <div class="fill">
+                <div class="input">
+                    <input type="text" id="UserName" autocomplete="off"/>
+                    <label for="UserName" class="placeholder">Username</label>
+                </div>
+            </div>
+            <div class="fill">
+                <div class="input">
+                    <input type="password" id="Token" autocomplete="off"/>
+                    <label for="Token" class="placeholder">Personnal Github Token</label>
+                </div>
+            </div>
+            <div class="check">
+                <div class="icon" id="keepLogIn">
+                    <div class="toggle"></div>
+                </div>
+                <div class="text">
+                    Keep me logged in
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="action" id="LogInSesame">
+                <div class="name">
+                    Log in
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="credits">
+        <div class="images">
+            <img src="styles/webutils/sesamod.png" id="logo">
+            <img src="styles/webutils/nafcreations.png" id="logo">
+
+        </div>
+        <div class="content">
+            <div class="title">
+                Sesame by Naflouille Creations.
+            </div>
+            <div class="description">
+                Sesame by Naflouille Creations is a protected projet. This project is leaded by Naflouille.<br>
+                No datas is readen by our website, everything is managed by Github and our database.<br>
+                For more informations, join the <a href="https://discord.gg/wtvGdj43F7">Discord server</a>.
+            </div>
+        </div>
+    </div>
+</body>

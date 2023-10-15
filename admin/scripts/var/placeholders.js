@@ -1,0 +1,22 @@
+const placeholder = {
+    "Direct.re" : "open / code",
+    "Direct.content" : "link / open",
+    "About.isStaff" : "true/false",
+    "About.isUCP" : "true/false",
+    "About.isContrib" : "true/false",
+    "About.isSesame" : "true/false",
+    "About.isModder" : "true/false",
+    "content" : "All mods created by this community. Sep. w/ comas",
+    "description":"Brief description of the subject",
+    "author" : "All authors or leaders. Sep. w/ comas",
+    "name":"Content name",
+    "tag" : "Clan tag(s)",
+    "templateImage"  : "A visual content for the subject",
+    "server":"World zone",
+    "language":"Spoken language(s)",
+    "active":"true/false",
+    "open":"If a website: link",
+    "code":"If a code: code",
+    "Link.url":"A link to the repo or file of the subject",
+    "mod":"The mod the subject is related to"
+}

@@ -1,0 +1,936 @@
+body {
+    background: var(--background);
+    color:var(--text-color);
+    font-family: var(--font-family);
+}
+.statusInfos {
+    margin: auto;
+    padding:50px;
+    border:2px solid rgba(255,255,255,0);
+    background-color: var(--outline-hover);
+    font-size: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.statusInfos .item svg {
+    width: 40px;
+    height: 40px;
+}
+.statusInfos .item {
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+}
+
+.login-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--outline);
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container .header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--low-color);
+}
+
+.login-container .header .sesame-logo img {
+    height: 60px;
+}
+
+.login-container .connect {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.login-container .connect .check {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-container .connect .check .icon {
+    width: 30px;
+    padding: 5px;
+    position: relative;
+    border-radius: 50px;
+    background-color: var(--outline);
+    height: 15px;
+    cursor: pointer;
+}
+
+.login-container .connect .check .icon .toggle {
+    transition: 0.3s;
+    position: absolute;
+    left: 5px;
+    background-color: var(--background);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.login-container .connect .check .checkOn {
+    left: 20px !important;
+    background-color: #d8c2bf !important;
+}
+
+.login-container .connect .fill {
+    width: 100%;
+}
+
+.login-container .connect .fill .input input {
+    color: var(--text-color);
+    width: calc(100% - 30px);
+    height: 40px;
+    border-radius: 5px;
+    padding: 0 15px;
+    border: 2px solid var(--outline);
+    background-color: unset;
+    outline: none;
+}
+
+.login-container .connect .fill .input {
+    position: relative;
+}
+
+.login-container .connect .fill .placeholder {
+    position: absolute;
+    color: var(--low-color);
+    left: 15px;
+    top: 10px;
+    bottom: 0;
+    cursor: text;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    transition: 0.3s;
+    background-color: var(--background);
+    border-radius: 50px;
+}
+
+.login-container .connect .fill .input input:focus ~ .placeholder,
+.login-container .connect .fill .input input:valid ~ .placeholder {
+    bottom: unset;
+    top: -7.5px;
+    font-size: 13px;
+    left: 5px;
+    color: var(--text-color);
+}
+
+
+.actions .action {
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #ffdad8;
+    cursor: pointer;
+    border: 1px solid #ffdad8;
+}
+
+.loader-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--outline);
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.loader-main .loader {
+    border: 4px solid var(--primary);
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+ 
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--low-color);
+}
+
+.adminPage .account:hover {
+    background-color: #2B2221;
+}
+.adminPage {
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+}
+.adminPage .account {
+    overflow: hidden;
+    padding: 10px 5px;
+    transition: 0.3s;
+    display: flex;
+    height: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    position: fixed;
+    top: 10px;
+    margin: auto;
+    right: 10px;
+    border-radius: 5px;
+}
+
+.adminPage .accountActions {
+    width: 100%;
+}
+
+.adminPage .accountActions .action:hover {
+    background-color: #2B2221;
+}
+
+.adminPage .accountActions .action:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.adminPage .accountActions .action {
+    transition: 0.3s;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    gap: 10px;
+}
+
+.adminPage .accountActions .action .icon svg {
+    fill: #ffdad8;
+    width: 20px;
+    height: 20px;
+}
+
+.adminPage .account .main {
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminPage .account .main .userlogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminPage .account .main .userlogo img {
+    border-radius: 50%;
+    height: 30px;
+}
+
+.act-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 10px 0;
+    top: 0;
+    gap: 20px;
+    background-color: var(--background);
+    z-index: 50;
+}
+
+.act-bar .search-input {
+    width: 50%;
+}
+
+.act-bar .search-input input {
+    transition: 0.3s;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    background-color: unset;
+    border: 2px solid transparent;
+    outline: none;
+    color: var(--text-color);
+    height: 50px;
+    padding: 0 20px;
+    font-size: 20px;
+    background-color: var(--second-background);
+}
+
+.act-bar .search-input input:hover,
+.act-bar .search-input input:focus {
+    border: 2px solid var(--outline);
+}
+
+.act-bar .item:hover {
+    background-color: var(--outline);
+}
+
+.act-bar .item {
+    transition: 0.3s;
+    background-color: var(--second-background);
+    fill: #ffdad8;
+    height: 56px;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.queryResults {
+    height: calc(100vh - 80px - 120px);
+    margin-top: 80px;
+    position:relative;
+    overflow-y: scroll;
+}
+.queryResults .loader {
+    display: none;
+    position: absolute;
+    top:0;right:0;left:0;margin:auto;bottom: 0;;
+    padding: 20px 30px 20px 30px;
+    width: 30%;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    fill:#A7171A;
+    background-color: var(--outline-hover);
+    border-radius: 10px;
+}
+@keyframes loadBar {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(calc(100% * 5));
+    }
+}
+.queryResults .loader .load {
+    height: 10px;
+    width: calc(100% - 4px);
+    padding: 2px;
+    background-color: var(--background);
+    border-radius: 50px;
+    overflow: hidden;
+}
+.queryResults .loader .load .load-bar {
+    height: 100%;
+    width: 20%;
+    animation:loadBar 2s infinite;
+    background-color: #A7171A;
+    border-radius: 50px;
+}
+
+.queryWhole {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+}
+.queryWhole #logo {
+    position:absolute;
+    top:0;bottom:0;right:0;left:0;margin:auto;
+    height: 50%;
+}
+
+.queryWhole .resultIsle {
+    position: relative;
+    width: calc(40% - 10px);
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+    display: flex;
+    border: 2px solid var(--outline);
+    flex-direction: column;
+    gap: 20px;
+}
+
+.queryWhole .resultIsle .isleHeader {
+    position: absolute;
+    background-color: var(--background);
+    border-radius: 50px;
+    width: fit-content;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -16px;
+    padding: 5px 55px;
+    border: 2px solid var(--outline);
+}
+
+.queryWhole .resultIsle .dataResult {
+    height: fit-content;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: var(--second-background);
+    width: calc(100% - 40px);
+}
+
+
+.dataInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dataInfo .main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.dataInfo .main-header .actionContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+    gap: 5px;
+    margin-left: auto;
+    fill: var(--low-color);
+    justify-content: center;
+    align-items: center;
+}
+
+.dataInfo .main-header .actionContent .actionItem {
+    cursor: pointer;
+    color: var(--low-color);
+    padding: 5px;
+    display: flex;
+    border-radius: 5px;
+    background-color: var(--outline);
+    fill: #ffdad8;
+    gap: 10px;
+    transition: 0.3s;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+}
+
+.dataInfo .main-header .actionContent .actionItem:hover {
+    background-color: var(--background);
+}
+
+.dataInfo .main-header .actionContent .actionItem .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dataInfo .main-header .actionContent .actionItem .icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.dataInfo .main-header .action {
+    fill: #ffdad8;
+    margin-left: auto;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
+}
+
+.dataInfo .main-header .main-infos {
+    overflow: hidden;
+}
+
+.dataInfo .main-header .main-infos .name,
+.dataInfo .main-header .main-infos .author {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dataInfo .main-header .main-infos .author {
+    font-size: 14px;
+    color:var(--low-color)
+}
+
+.dataInfo .main-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.dataInfo .main-img .icon-info {
+    position: absolute;
+    bottom: -12.5px;
+    right: -12.5px;
+    padding: 5px;
+    background-color: var(--background);
+    border-radius: 50%;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dataInfo .main-img #push {
+    fill: #228b22;
+}
+
+.dataInfo .main-img #delete {
+    fill: #A7171A;
+}
+
+.dataInfo .main-img .icon-info svg {
+    width: 20px;
+    height: 20px;
+}
+
+.dataInfo .main-img img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.dataInfo .sesame-infos {
+    font-size: 13px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: var(--low-color);
+    fill: var(--low-color);
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.dataInfo .description {
+    font-size: 14px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--low-color);
+    fill: var(--low-color);
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.dataInfo .sesame-infos .icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+.dataInfo .sesame-infos .id {
+    width: calc(100% - 15px - 10px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.publish-container {
+    width: calc(100%);
+    height: calc(100% - 70px);
+}
+.publish-container .PushForm {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    background-color: var(--outline-hover);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.publish-container .PushForm .PushHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.publish-container .PushForm .PushHeader .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.publish-container .PushForm .PushHeader .title img {
+    height: 50px;
+}
+.publish-container .PushForm .PushHeader .infoSheet {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.publish-container .PushForm .PushHeader .infoSheet .bottom {
+    font-size: 13px;
+    color:var(--low-color)
+}
+.publish-container .PushForm  .input {
+    display: flex;
+    width: 100%;
+    gap:5px;
+    flex-direction: column;
+}
+.publish-container .PushForm .input .name {
+    font-size: 14px;
+}
+.publish-container .PushForm .input input {
+    width: 100%;
+    height: 30px;
+    width: calc(100% - 20px);
+    padding: 5px 10px 5px 10px;
+    border:none;
+    outline:none;
+    background-color: var(--outline);
+    color:white;
+    border-radius: 5px;
+}
+.publish-container .PushForm .launch {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    background-color: var(--outline);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.publish-container .PushForm .launch:hover {
+    background-color: var(--background);
+}
+.publish-container .PushForm .launch .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill:#ffdad8;
+
+}
+.divContainer {
+    width: calc(100% - 10px);
+    padding-right: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+
+}
+.divContainer .nextTo-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.divContainer .actions-container {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.divContainer .dataResult {
+    width: calc(100% - 40px - 2);
+    padding: 10px 20px;
+    background-color: var(--second-background);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    border:2px solid rgba(255,255,255,0)
+}
+
+.divContainer .dataResult .main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+.divContainer .dataResult .main-header .actionContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: 5px;
+    width:120px;
+    gap: 5px;
+    fill: var(--low-color);
+    justify-content: center;
+    align-items: center;
+}
+.main-header .main {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+.divContainer .dataResult .main-header .actionContent .actionItem {
+    cursor: pointer;
+    color: var(--low-color);
+    padding: 5px;
+    display: flex;
+    border-radius: 5px;
+    background-color: var(--outline);
+    fill: #ffdad8;
+    gap: 10px;
+    transition: 0.3s;
+    align-items: center;
+    width: 100% !important;
+    height: 30px;
+    justify-content: center;
+}
+
+.divContainer .dataResult .main-header .actionContent .actionItem:hover {
+    background-color: var(--background);
+}
+
+.divContainer .dataResult .main-header .actionContent .actionItem .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divContainer .dataResult .main-header .actionContent .actionItem .icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.divContainer .dataResult .main-header .action {
+    fill: #ffdad8;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
+}
+
+.divContainer .dataResult .main-header .main-infos {
+    overflow: hidden;
+}
+
+.divContainer .dataResult .main-header .main-infos .name,
+.divContainer .dataResult .main-header .main-infos .author {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.divContainer .dataResult .main-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.divContainer .dataResult .main-img .icon-info {
+    position: absolute;
+    bottom: -12.5px;
+    right: -12.5px;
+    padding: 5px;
+    background-color: var(--outline);
+    border-radius: 50%;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divContainer .dataResult .main-img #push {
+    fill: #228b22;
+}
+
+.divContainer .dataResult .main-img #delete {
+    fill: #A7171A;
+}
+
+.divContainer .dataResult .main-img .icon-info svg {
+    width: 20px;
+    height: 20px;
+}
+
+.divContainer .dataResult .main-img img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.divContainer .dataResult .sesame-infos {
+    font-size: 13px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: var(--low-color);
+    fill: var(--low-color);
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.divContainer .dataResult .sesame-infos .icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+.divContainer .dataResult .sesame-infos .id {
+    width: calc(100% - 15px - 10px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.divContainer .dataResult .actionContent .actionItem {
+    width: calc(240px - 20px) !important;
+    padding: 5px 10px 5px 10px;
+    justify-content: unset !important;
+    background-color: var(--outline);
+}
+
+.divContainer .dataResult .actionContent .actionItem .icon {
+    justify-content: unset;
+    gap: 10px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.divContainer .dataResult .actionContent .actionItem .icon svg {
+    border-radius: 4px;
+    background-color: var(--outline-hover);
+    padding: 5px;
+}
+
+.divContainer .dataResult .dataInfo {
+    width: calc(100% - 40px - 10px);
+}
+
+
+
+.disabled_button {
+    background-color: rgba(255,255,255,0.1) !important;
+    fill: rgba(255,255,255,0.1) !important;
+    cursor:not-allowed !important;
+}
+
+.credits {
+    position:absolute;
+    bottom:0px;
+    background-color: var(--background);
+    padding: 10px 20px 10px 20px;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    gap:90px;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+.credits .images img {
+    height: 50px;
+    border:1px solid var(--low-color);
+    border-radius: 50px;
+    padding: 5px 20px 5px 20px;
+}
+.credits .images {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.credits a {
+    color:white;
+}
+.credits .content .description {
+    font-size: 12px;
+    color:var(--low-color);
+}

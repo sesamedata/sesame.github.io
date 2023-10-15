@@ -1,0 +1,55 @@
+@media screen and (max-width: 500px) {
+    body {
+        overflow-x:hidden !important;
+    }
+   .credits {
+        flex-direction: column;
+        gap:15px;
+        bottom:-120px !important;
+        padding-bottom: 20px !important;
+        height: fit-content !important;
+   }
+   .login-container {
+        bottom:unset !important;
+        top:20px !important;
+        width: 70% !important;
+   }
+   #LeaveSession .text {
+    display: none !important;
+   }
+   .act-bar {
+        display: flex;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        width: calc(100% - 20px) !important;
+        gap: 10px !important;
+        top:5px !important;
+   }
+   .act-bar .search-input {
+    width: calc(100% - 20px - 80px) !important ;
+   }
+   .act-bar .item {
+    font-size: 14px !important;
+    
+   }
+   .loader {
+    width: 80% !important;
+   }
+   #AddDatas {
+    display: none !important;
+   }
+   .queryWhole {
+    flex-direction: column !important;
+    flex-wrap:  nowrap !important;
+    margin-left: -5px !important;
+    justify-content: center !important;
+   }
+   .queryWhole .resultIsle {
+    width: calc(100% - 80px) !important;
+    margin-left: auto !important;
+    margin-right:  auto !important;
+   }
+   .actionContent {
+    display: none !important;
+   }
+}
