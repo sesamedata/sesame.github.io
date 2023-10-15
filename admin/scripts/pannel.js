@@ -388,8 +388,9 @@ function ValidateContent(id,action='push') {
                     name :  a
                 })
             });
-        } else if (parts[0] === "content") {
-
+        } else if (parts[0] === "content" || parts[0] === "tag") {
+            js_content[parts[0]] = [];
+            js_content[parts[0]] = el.value.split(',')
         }
         else {
             parts[0] = parts[0].charAt(0).toLowerCase() + parts[0].slice(1);
