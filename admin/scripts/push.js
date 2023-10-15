@@ -249,7 +249,7 @@ async function CheckAvailability() {
                                         throw error;
                                     } finally {
                                         Object.keys(session.waitingDatas).forEach((e) => {
-                                            e.values = [];
+                                            e.values = {push:{values:[]},delete:{values:[]}};
                                           });
                                           localStorage.setItem('SesameSessionStorage',JSON.stringify(session));
                                         GenerateStatus({
