@@ -251,7 +251,16 @@ async function CheckAvailability() {
                                           });
                                           throw error;
                                       } finally {
-                                            session.waitingDatas.values = {push:{values:[]},delete:{values:[]}};
+                                            session.waitingDatas.waitingDatas = {
+                                                "push" : {
+                                                    about : 'The newly added and edited content appear here.',
+                                                    values : []
+                                                },
+                                                "delete" : {
+                                                    about : 'The deleted content from the database appears here.',
+                                                    values : []
+                                                }
+                                            },
                                             localStorage.setItem('SesameSessionStorage',JSON.stringify(session));
                                           GenerateStatus({
                                               color: '#35AB36',
