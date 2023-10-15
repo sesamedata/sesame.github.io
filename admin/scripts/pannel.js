@@ -125,9 +125,8 @@ function CreateRender() {
                 `;
                 editButton.addEventListener('click',function() {
                     let split = data.sesameID.split('-')
-                    console.log(split)
                     console.log(tree.reverseAbreviation[split[0]])
-                    DatasPannel("triggerEdit", {id: tree.reverseAbreviation[data.sesameID.split('-')[0]],content: data});
+                    DatasPannel("triggerEdit", {id: tree.reverseAbreviation[split[0]],content: data});
                 });
                 if (i==="delete") {
                     editButton.classList.add('disabled_button');
@@ -400,15 +399,22 @@ function ValidateContent(id,action='push') {
             } else if (value == "false") {
                 value = false;
             }
+            console.log(value,parts[0])
             if (parts.length <= 1) {
                 js_content[parts[0]] = value;
             } else {
                 if (parts[0] === "links") {
-                    if (!js_content["links"]) js_content["links"]  = [];
-                    js_content["links"].push({
-                        id : parts[1],
-                        src : value
-                    });
+                    
+                    if (id == "community") {
+                        if (!js_content["links"]) js_content["links"]  = {};
+                        js_content["links"][parts[1]] = value || '';
+                    } else {
+                        if (!js_content["links"]) js_content["links"]  = [];
+                        js_content["links"].push({
+                            id : parts[1],
+                            src : value
+                        });
+                    }
                 } else {
                     if (!js_content["about"]) js_content["about"] = {}
                     js_content["about"][`${parts[1]}`] = value;
