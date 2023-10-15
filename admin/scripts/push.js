@@ -186,6 +186,7 @@ async function CheckAvailability() {
                               };
                               resolve();
                             } catch (error) {
+
                               reject(error);
                             }
                           });
@@ -207,57 +208,63 @@ async function CheckAvailability() {
                                 console.log(repo)
                                 await EditGithub();
                                 async function EditGithub() {
-                                    const path = `https://api.github.com/repos/W0lfan/${tree.repo}/contents/database/${rep}.json`;
-                                    GenerateStatus({
-                                        color: '#35AB36',
-                                        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-160H260q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520v-286l64 62 56-56-160-160-160 160 56 56 64-62v286Z"/></svg>',
-                                        value: `Pushing to database/${rep}.json`
-                                      });
-                                    const updated = JSON.stringify(repo.values,null,2);
-                                    const utf8Bytes = new TextEncoder().encode(updated);
-                                    const base64String = btoa(String.fromCharCode(...utf8Bytes));
-                                    async function getSHA() { 
-                                        try {
-                                          const response = await axios.get(path);
-                                          return response.data.sha;
-                                        } catch (error) {
-                                            GenerateStatus({
-                                                color : '#B82828',
-                                                icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>',
-                                                value : "An error occured. This may be related to the limitation rate."
-                                            });
-                                          throw error; // Rethrow the error for higher-level handling
-                                        }
-                                      }
-                                    const sha = await getSHA();
                                     try {
-                                        await axios.put(path, {
-                                            message : `LiveUpdate from SesAdmin by ${session.userName} to database/${rep}.json`,
-                                            content : base64String,
-                                            sha : sha
-                                        }, {
-                                            headers : {
-                                                Authorization : `Bearer ${token}`
-                                            }
+                                      const path = `https://api.github.com/repos/W0lfan/${tree.repo}/contents/database/${rep}.json`;
+                                      GenerateStatus({
+                                          color: '#35AB36',
+                                          icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-160H260q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520v-286l64 62 56-56-160-160-160 160 56 56 64-62v286Z"/></svg>',
+                                          value: `Pushing to database/${rep}.json`
                                         });
+                                      const updated = JSON.stringify(repo.values,null,2);
+                                      const utf8Bytes = new TextEncoder().encode(updated);
+                                      const base64String = btoa(String.fromCharCode(...utf8Bytes));
+                                      async function getSHA() { 
+                                          try {
+                                            const response = await axios.get(path);
+                                            return response.data.sha;
+                                          } catch (error) {
+                                              GenerateStatus({
+                                                  color : '#B82828',
+                                                  icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>',
+                                                  value : "An error occured. This may be related to the limitation rate."
+                                              });
+                                            throw error; // Rethrow the error for higher-level handling
+                                          }
+                                        }
+                                      const sha = await getSHA();
+                                      try {
+                                          await axios.put(path, {
+                                              message : `LiveUpdate from SesAdmin by ${session.userName} to database/${rep}.json`,
+                                              content : base64String,
+                                              sha : sha
+                                          }, {
+                                              headers : {
+                                                  Authorization : `Bearer ${token}`
+                                              }
+                                          });
+                                      } catch(error) {
+                                          console.log("Error in the update");
+                                          GenerateStatus({
+                                              color : '#B82828',
+                                              icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>',
+                                              value : "An error occured. This may be related to the limitation rate."
+                                          });
+                                          throw error;
+                                      } finally {
+                                            session.waitingDatas.values = {push:{values:[]},delete:{values:[]}};
+                                            localStorage.setItem('SesameSessionStorage',JSON.stringify(session));
+                                          GenerateStatus({
+                                              color: '#35AB36',
+                                              icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m80-80 200-560 360 360L80-80Zm502-378-42-42 224-224q32-32 77-32t77 32l24 24-42 42-24-24q-14-14-35-14t-35 14L582-458ZM422-618l-42-42 24-24q14-14 14-34t-14-34l-26-26 42-42 26 26q32 32 32 76t-32 76l-24 24Zm80 80-42-42 144-144q14-14 14-35t-14-35l-64-64 42-42 64 64q32 32 32 77t-32 77L502-538Zm160 160-42-42 64-64q32-32 77-32t77 32l64 64-42 42-64-64q-14-14-35-14t-35 14l-64 64Z"/></svg>',
+                                              value: `All good! All your content has been pushed to the database.`
+                                            });
+                                      }
                                     } catch(error) {
-                                        console.log("Error in the update");
-                                        GenerateStatus({
-                                            color : '#B82828',
-                                            icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>',
-                                            value : "An error occured. This may be related to the limitation rate."
-                                        });
-                                        throw error;
-                                    } finally {
-                                        Object.keys(session.waitingDatas).forEach((e) => {
-                                            e.values = {push:{values:[]},delete:{values:[]}};
-                                          });
-                                          localStorage.setItem('SesameSessionStorage',JSON.stringify(session));
-                                        GenerateStatus({
-                                            color: '#35AB36',
-                                            icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m80-80 200-560 360 360L80-80Zm502-378-42-42 224-224q32-32 77-32t77 32l24 24-42 42-24-24q-14-14-35-14t-35 14L582-458ZM422-618l-42-42 24-24q14-14 14-34t-14-34l-26-26 42-42 26 26q32 32 32 76t-32 76l-24 24Zm80 80-42-42 144-144q14-14 14-35t-14-35l-64-64 42-42 64 64q32 32 32 77t-32 77L502-538Zm160 160-42-42 64-64q32-32 77-32t77 32l64 64-42 42-64-64q-14-14-35-14t-35 14l-64 64Z"/></svg>',
-                                            value: `All good! All your content has been pushed to the database.`
-                                          });
+                                      GenerateStatus({
+                                        color : '#B82828',
+                                        icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-320q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-40-160h80v-200h-80v200Zm40 400q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>',
+                                        value : "Your push limit has been reached. Try to push again in a few hours."
+                                    });
                                     }
                                 }
                                 
