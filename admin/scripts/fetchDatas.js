@@ -100,7 +100,7 @@ async function InitSession(input = null) {
 
                             let description = data.description;
                             let readMore = false;
-                            if (data.description.length > 75) {
+                            if (data.description && data.description.length > 75) {
                                 readMore = true;
                                 description = description.slice(0, 72 - 3) + '...';
                             }
