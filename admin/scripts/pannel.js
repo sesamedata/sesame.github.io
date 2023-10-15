@@ -390,8 +390,10 @@ function ValidateContent(id,action='push') {
         else {
             parts[0] = parts[0].charAt(0).toLowerCase() + parts[0].slice(1);
             value = el.value;
-            if (value == "true" || value == "false") {
-                value = Boolean(el.value);
+            if (value == "true") {
+                value = true;
+            } else if (value == "false") {
+                value = false;
             }
             if (parts.length <= 1) {
                 js_content[parts[0]] = value;
