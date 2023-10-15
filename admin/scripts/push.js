@@ -171,8 +171,8 @@ async function CheckAvailability() {
                                     }
                                     if (!pushed) {
                                       let id = element.sesameID.split('-');
-                                      console.log('PUSHNG',directories[i],tree.reverseAbreviation[id[0]],id[0])
-                                      if (directories[i] === tree.reverseAbreviation[id[0]]) {
+                                      console.log('PUSHNG',directories[i],tree.reverseAbreviationLow[id[0]],id[0])
+                                      if (directories[i] === tree.reverseAbreviationLow[id[0]]) {
                                         content.push(element);
                                         ch=true;
                                       }
