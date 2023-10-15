@@ -20,10 +20,10 @@ const tree = {
         ship :                 "shp"    
     },
     reverseAbreviation : {
-        cds :                 "code",
-        usr :                 "user",
-        md :                  "mod",
-        cmnt :           "community",
-        shp :                 "ship"    
+        cds :                 "codes",
+        usr :                 "users",
+        md :                  "mods",
+        cmnt :           "communities",
+        shp :                 "ships"    
     }
 }

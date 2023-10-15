@@ -96,10 +96,24 @@ window.addEventListener('DOMContentLoaded', async function () {
                     });
                 }
             } else {
+                if (!document.querySelector('.actions .alert')) {
+                    document.querySelector('.actions').innerHTML += `
+                        <div class="alert">
+                            Wrong username / token
+                        </div>
+                    `;
+                }
                 console.error(`Error: ${response.status} - ${response.statusText}`);
             }
         } catch (error) {
             console.error('Error:', error.message);
+            if (!document.querySelector('.actions .alert')) {
+                document.querySelector('.actions').innerHTML += `
+                    <div class="alert">
+                        Wrong username / token
+                    </div>
+                `;
+            }
         }
     };
 

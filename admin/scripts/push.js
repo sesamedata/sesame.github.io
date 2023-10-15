@@ -134,9 +134,9 @@ async function CheckAvailability() {
                               });
                               let DatasToPush = session.waitingDatas;
                       
-                              for (let i of Object.keys(DatasToPush)) {
-                                let ctn = DatasToPush[i].values;
-                                if (i === "delete") {
+                              for (let j of Object.keys(DatasToPush)) {
+                                let ctn = DatasToPush[j].values;
+                                if (j === "delete") {
                                   for (let element of ctn) {
                                     for (let index = 0; index < content.length; index++) {
                                       let dataBaseElement = content[index];
@@ -152,7 +152,7 @@ async function CheckAvailability() {
                                       }
                                     }
                                   }
-                                } else if (i === "push") {
+                                } else if (j === "push") {
                                   for (let element of ctn) {
                                     let pushed = false;
                                     for (let index = 0; index < content.length; index++) {
@@ -171,6 +171,7 @@ async function CheckAvailability() {
                                     }
                                     if (!pushed) {
                                       let id = element.sesameID.split('-');
+                                      console.log('PUSHNG',directories[i],tree.reverseAbreviation[id[0]],id[0])
                                       if (directories[i] === tree.reverseAbreviation[id[0]]) {
                                         content.push(element);
                                         ch=true;

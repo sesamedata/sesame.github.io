@@ -54,12 +54,12 @@ let patterns = {
       ),
       "ship" : JSON.stringify({
         "name": "",
+        "description": "",
         "author": [],
         "code": [],
         "mod": "",
         "sesameID": "",
-        "templateImage": "",
-        "description": ""
+        "templateImage": ""
       }),
       "mod" : JSON.stringify({
         "name": "",

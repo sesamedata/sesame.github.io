@@ -276,6 +276,10 @@ function DatasPannel(action=null,metadata=null) {
                                                         } else  if (parentKey != '' && metadata.content[formattedParentKey]) {
                                                             input.value = metadata.content[formattedParentKey][formattedKey];
                                                         } 
+                                                        if (formattedKey.includes('code') && button.id == "ship") {
+                                                            console.log(metadata.content[formattedKey])
+                                                            input.value = JSON.stringify(metadata.content[formattedKey][0]);
+                                                        }
                                                 }
                                                 if (customData) {
                                                     FillDatas()
