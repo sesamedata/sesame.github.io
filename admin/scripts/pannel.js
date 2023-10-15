@@ -423,9 +423,11 @@ function ValidateContent(id,action='push') {
         }
     });
     if (id == "ship" && js_content.code) {
-        js_content.code = ReturnShipCode(js_content.code);
+        console.log('formatting code')
+        js_content.code = ReturnShipCode(`${js_content.code}`);
     } 
     console.log(js_content, "isContent")
+
     if (!js_content.sesameID) {
         js_content = DataKey(js_content,id);
     } 
