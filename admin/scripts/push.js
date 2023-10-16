@@ -5,7 +5,7 @@ function PushToGithub() {
 }
 
 
-
+let updateName;
 function GenerateInput() {
         const pushForm = document.createElement('div');
         pushForm.className = 'PushForm';
@@ -39,22 +39,33 @@ function GenerateInput() {
         infoSheet.appendChild(bottom);
 
         // Create the input div
-        const input = document.createElement('div');
-        input.className = 'input';
+        pushForm.appendChild(header);
+        header.appendChild(innerHeader);
+        header.appendChild(infoSheet);
+        [{name:"name",content:"Enter your personal Github token",placeholder : '',id:"tokenInput",type:"password"},
+        {name:"push",content:"Enter an update name",placeholder :  `LiveUpdate from SesAdmin by ${session.userName} to database/x.json`,id:"pushName",type:"text"}
+        ].forEach((i) => {
+          const input = document.createElement('div');
+          input.className = 'input';
+  
+          // Create the name div inside input
+          const name = document.createElement('div');
+          name.className = 'name';
+          name.textContent = i.content;
+  
+          // Create the input element
+          const inputType = document.createElement('input');
+          inputType.id = i.id;
+          inputType.value = i.placeholder;
+          inputType.setAttribute('type', i.type);
+          
+          // Append the name and input to the input div
+          input.appendChild(name);
+          input.appendChild(inputType);
+          pushForm.appendChild(input);
 
-        // Create the name div inside input
-        const name = document.createElement('div');
-        name.className = 'name';
-        name.textContent = 'Enter your personal Github token';
+        })
 
-        // Create the input element
-        const tokenInput = document.createElement('input');
-        tokenInput.id = "tokenInput";
-        tokenInput.setAttribute('type', 'password');
-
-        // Append the name and input to the input div
-        input.appendChild(name);
-        input.appendChild(tokenInput);
 
         // Create the launch div
         const launch = document.createElement('div');
@@ -69,13 +80,11 @@ function GenerateInput() {
         `;
 
         launch.addEventListener('click',async function() {
+          updateName = document.getElementById('pushName').value;
             await CheckAvailability();
         });
 
-        pushForm.appendChild(header);
-        header.appendChild(innerHeader);
-        header.appendChild(infoSheet);
-        pushForm.appendChild(input);
+
         pushForm.appendChild(launch);
 
         return pushForm;
@@ -234,7 +243,7 @@ async function CheckAvailability() {
                                       const sha = await getSHA();
                                       try {
                                           await axios.put(path, {
-                                              message : `LiveUpdate from SesAdmin by ${session.userName} to database/${rep}.json`,
+                                              message : updateName,
                                               content : base64String,
                                               sha : sha
                                           }, {
@@ -262,15 +271,17 @@ async function CheckAvailability() {
                                                 }
                                             };
                                             localStorage.setItem('SesameSessionStorage',JSON.stringify(session));
-                                            DatasPannel();
-
                                           GenerateStatus({
                                               color: '#35AB36',
                                               icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m80-80 200-560 360 360L80-80Zm502-378-42-42 224-224q32-32 77-32t77 32l24 24-42 42-24-24q-14-14-35-14t-35 14L582-458ZM422-618l-42-42 24-24q14-14 14-34t-14-34l-26-26 42-42 26 26q32 32 32 76t-32 76l-24 24Zm80 80-42-42 144-144q14-14 14-35t-14-35l-64-64 42-42 64 64q32 32 32 77t-32 77L502-538Zm160 160-42-42 64-64q32-32 77-32t77 32l64 64-42 42-64-64q-14-14-35-14t-35 14l-64 64Z"/></svg>',
                                               value: `All good! All your content has been pushed to the database.`
                                             });
+                                            setTimeout(() => {
+                                              DatasPannel();
+                                            }, 2500);
                                       }
                                     } catch(error) {
+                                      console.log(error)
                                       GenerateStatus({
                                         color : '#B82828',
                                         icon : '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-320q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-40-160h80v-200h-80v200Zm40 400q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg>',

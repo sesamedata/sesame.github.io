@@ -404,7 +404,6 @@ function ValidateContent(id,action='push') {
                 js_content[parts[0]] = value;
             } else {
                 if (parts[0] === "links") {
-                    
                     if (id == "community") {
                         if (!js_content["links"]) js_content["links"]  = {};
                         js_content["links"][parts[1]] = value || '';
