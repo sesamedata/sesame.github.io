@@ -947,3 +947,24 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+   .credits {
+    flex-direction: column !important;
+    gap: 20px !important;
+   }
+   .act-bar .item .text {
+    display: none !important;
+   }
+   .queryWhole{
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+   }
+   .queryResults .resultIsle {
+    width: 80%;
+    margin-left:  auto !important;
+    margin-right: auto !important;
+   }
+}

@@ -175,7 +175,7 @@
     flex-direction: column;
     gap: 10px;
     max-height: calc(100% - 85px - 60px);
-    padding-right: 20px;
+    padding: 0px 20px 20px 0px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -197,13 +197,14 @@
     color: #ffdad8;
     position: absolute;
     height: fit-content;
-    top: 33px;
+    top: 35px;
     left: 10px;
     text-transform: uppercase;
     transition: 0.3s;
-    background-color: var(--outline);
+    background-color: var(--background);
     padding: 0px 10px 2px 10px;
-    border-radius: 5px;
+    border-radius: 0px;
+    width: calc(100% - 20px - 10px);
 }
 
 /* Input Effects */
@@ -215,6 +216,7 @@
     font-size: 13px;
     color: var(--low-color);
     fill: var(--low-color);
+    width: fit-content;
 }
 
 /* Input Field */
@@ -222,12 +224,13 @@
     width: calc(100% - 30px);
     border: none;
     outline: none;
-    background-color: var(--outline);
     border-radius: 5px;
+    background-color: unset;
     height: 50px;
     padding: 0px 15px;
     color: var(--text-color);
     font-size: 16px;
+    border: 1px solid #ffdad8;
 }
 
 /* Content Links and Content About */
