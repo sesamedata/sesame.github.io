@@ -1023,4 +1023,7 @@ body {
     top:10px !important;
     left: 5px !important;
    }
+   .pannel {
+    width: calc(90% - 80px) !important;
+   }
 }
