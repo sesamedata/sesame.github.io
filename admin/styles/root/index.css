@@ -966,6 +966,17 @@ body {
 
 
 @media screen and (max-width: 1300px) {
+    #LogInSesame {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-container {
+        bottom:unset !important;
+        top:20px !important;
+        width: 70% !important;
+   }
    .credits {
     flex-direction: column !important;
     gap: 20px !important;
