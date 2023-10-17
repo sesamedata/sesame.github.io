@@ -695,6 +695,7 @@ body {
     width: calc(100% - 10px);
     padding-right: 10px;
     border-radius: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
