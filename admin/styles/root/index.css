@@ -31,10 +31,9 @@ body {
 
 .login-container {
     position: absolute;
-    top: 0;
+    top: 5%;
     left: 0;
     right: 0;
-    bottom: 0;
     padding: 40px;
     border-radius: 20px;
     border: 2px solid var(--outline);
