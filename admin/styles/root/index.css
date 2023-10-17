@@ -980,6 +980,11 @@ body {
    .credits {
     flex-direction: column !important;
     gap: 20px !important;
+    height: fit-content !important;
+    bottom:-50% !important;
+   }
+   .adminPage .queryResults {
+    height: calc(100vh - 80px) !important;
    }
    .act-bar .item .text {
     display: none !important;
@@ -993,5 +998,29 @@ body {
     width: 80%;
     margin-left:  auto !important;
     margin-right: auto !important;
+   }
+
+   .addItemsContainer {
+        width:calc(100% + 60px) !important;
+        margin-left: -30px;
+        height: calc(100% + 50px) !important;
+   }
+   .addItemsContainer .header {
+    width: 100% !important;
+   }
+   .addItemsContainer .header .classes .item .item_name {
+    display: none !important;
+   }
+   .contentLinks, .contentAbout {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+   }
+   .contentLinks .contentInput, .contentAbout .contentInput {
+    width: calc(50% - 20px) !important;
+   }
+   .topBack {
+    top:10px !important;
+    left: 5px !important;
    }
 }
