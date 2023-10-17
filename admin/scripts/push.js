@@ -43,7 +43,7 @@ function GenerateInput() {
         header.appendChild(innerHeader);
         header.appendChild(infoSheet);
         [{name:"name",content:"Enter your personal Github token",placeholder : '',id:"tokenInput",type:"password"},
-        {name:"push",content:"Enter an update name",placeholder :  `LiveUpdate from SesAdmin by ${session.userName} to database/x.json`,id:"pushName",type:"text"}
+        {name:"push",content:"Enter an update name",placeholder :  `SesAdmin - ${session.userName} to database`,id:"pushName",type:"text"}
         ].forEach((i) => {
           const input = document.createElement('div');
           input.className = 'input';

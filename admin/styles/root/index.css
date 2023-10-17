@@ -577,9 +577,14 @@ body {
     color: var(--low-color);
     fill: var(--low-color);
     width: calc(100% - 20px);
-    padding: 5px 10px;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
+}
+.dataInfo .sesame-infos .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .dataInfo .description {
     font-size: 14px;
@@ -590,7 +595,7 @@ body {
     color: var(--low-color);
     fill: var(--low-color);
     width: calc(100% - 20px);
-    padding: 5px 10px;
+    padding: 5px 10px 5px 10px;
     border-radius: 5px;
 }
 .dataInfo .sesame-infos .icon svg {
@@ -692,7 +697,7 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     overflow-y: auto;
 
 }
@@ -708,17 +713,21 @@ body {
 }
 
 .divContainer .dataResult {
-    width: calc(100% - 40px - 2);
+    width: calc(100% - 50px);
     padding: 10px 20px;
     background-color: var(--second-background);
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    cursor: pointer;
     border:2px solid rgba(255,255,255,0)
 }
-
+.divContainer .dataResult:nth-child(2) {
+    border-radius: 30px 30px 0px 0px;
+}
+.divContainer .dataResult:nth-last-child(1) {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
 .divContainer .dataResult .main-header {
     display: flex;
     flex-direction: row;
@@ -752,7 +761,7 @@ body {
     color: var(--low-color);
     padding: 5px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--outline);
     fill: #ffdad8;
     gap: 10px;
@@ -771,11 +780,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255,255,255,0) !important;
 }
 
 .divContainer .dataResult .main-header .actionContent .actionItem .icon svg {
     width: 20px;
     height: 20px;
+    background-color: rgba(255,255,255,0) !important;
 }
 
 .divContainer .dataResult .main-header .action {
@@ -853,9 +864,14 @@ body {
     color: var(--low-color);
     fill: var(--low-color);
     width: calc(100% - 20px);
-    padding: 5px 10px;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
+}
+.divContainer .dataResult .sesame-infos .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .divContainer .dataResult .sesame-infos .icon svg {
