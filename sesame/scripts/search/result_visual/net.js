@@ -1,5 +1,5 @@
 import { Return } from '/sesame/scripts/search/result_visual/net/global.js'
-import { adminTools } from '/sesame/scripts/search/result_visual/net/adminTools.js'
+import { adminTools } from '/sesame/scripts/search/result_visual/net/admintools.js'
 import { RemoveSession, GetSession } from "/sesame/service/admin/connect/storage.js";
 import { TokenVerification } from "/sesame/service/admin/connect/token_verif.js";
 
